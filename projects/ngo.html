@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NGO Platform &amp; Community App — Deepak Bharate</title>
+<meta name="description" content="Two applications on one self-hosted Kubernetes cluster delivered by ArgoCD GitOps, including a four-service microservice app, shared stateful infrastructure and cloud billing guardrails.">
+<link rel="canonical" href="https://04deepak.github.io/portfolio/projects/ngo.html">
+<meta property="og:title" content="NGO Platform &amp; Community App — Deepak Bharate">
+<meta property="og:description" content="Self-hosted K3s cluster, ArgoCD GitOps, four-service microservices.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0d12'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='monospace' font-weight='bold' fill='%23ffb454'>D</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/main.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var theme = saved || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  })();
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <nav class="wrap nav" aria-label="Primary">
+    <a class="brand" href="../"><span class="brand-mark">~/</span>deepak</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../work.html">Work</a></li>
+      <li><a href="../#stack">Stack</a></li>
+      <li><a href="../#timeline">Experience</a></li>
+      <li><a href="../#about">About</a></li>
+      <li><a href="../#contact">Contact</a></li>
+    </ul>
+    <div class="nav-tools">
+      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="wrap wrap--narrow">
+
+    <section class="case-hero">
+      <a class="back-link" href="../work.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        All work
+      </a>
+      <p class="eyebrow">Case study</p>
+      <h1 style="font-size:var(--step-4)">NGO Platform &amp; Community App</h1>
+      <p class="lede">Two applications, one self-hosted cluster, zero manual deployments — plus the cloud bill guardrails that came from learning the hard way.</p>
+
+      <dl class="case-meta">
+        <div><dt>Role</dt><dd>DevOps / platform + backend</dd></div>
+        <div><dt>Timeline</dt><dd>June 2026 — ongoing</dd></div>
+        <div><dt>Stack</dt><dd>K3s · ArgoCD · Prisma · PostgreSQL · Redis · Turborepo · GHCR · AWS S3</dd></div>
+      </dl>
+    </section>
+
+    <article class="case-body">
+
+      <h2>The setup</h2>
+      <p>
+        Two separate products needed to run for the same client: an NGO platform with a conventional
+        backend/frontend split, and a community application built as four backend microservices with its own admin
+        interface. Rather than two environments, both went onto a single self-hosted Kubernetes cluster with
+        namespace separation.
+      </p>
+      <p>
+        Everything is delivered by ArgoCD pulling from a dedicated GitOps repository, with automated pruning and
+        self-healing enabled. Nothing reaches the cluster because someone ran a command; it reaches the cluster
+        because a commit landed.
+      </p>
+
+      <h2>The NGO platform</h2>
+      <ul class="bullets">
+        <li>Backend and frontend deployed as container images from a registry, with health probes, <strong>horizontal pod autoscaling</strong> and <strong>PodDisruptionBudgets</strong> so scaling events and node maintenance don't take the service down.</li>
+        <li>Database migrations and seeding run through Prisma — master category and item reference data, and legal agreement records.</li>
+        <li>Fixed a crash loop, login and CORS failures, and broken object-storage uploads during bring-up.</li>
+      </ul>
+
+      <h3>An AWS account suspension, and what it taught me</h3>
+      <p>
+        The client's original AWS account was suspended, which took document storage down with it. I migrated
+        storage to a new account and reconfigured bucket CORS — and then, because the same failure mode should not
+        be possible twice, set up <strong>billing guardrails</strong>: budgets and alarms at a deliberately low
+        threshold, with a service control policy that denies further spend at 100% of budget.
+      </p>
+      <p>
+        A hard stop is better than a surprise. For a non-profit's infrastructure it's the only responsible default.
+      </p>
+
+      <h2>The community app</h2>
+      <p>
+        Four services — users, chat, forum and notifications — plus a Next.js admin interface. I authored the
+        Kubernetes manifests for all of them, the ArgoCD application that delivers them, and their secret
+        synchronisation resources.
+      </p>
+      <p>
+        Authentication uses asymmetric JWT signing: the user service holds the private key and signs, and every
+        other service verifies with the public key. No shared secret to distribute, and a compromised forum
+        service can't mint tokens.
+      </p>
+      <p>
+        The frontends were originally destined for a managed hosting platform, but the client required on-server
+        deployment — so they were containerised and moved onto the cluster alongside everything else.
+      </p>
+
+      <h2>Shared infrastructure</h2>
+      <p>
+        PostgreSQL runs as a StatefulSet with Redis alongside it in a shared namespace, exposed to each
+        application namespace through alias services. That keeps one database platform to operate rather than one
+        per app, while the applications still address it as though it were local to them.
+      </p>
+      <p>
+        A self-hosted secret manager is the single source of truth for configuration, synchronised into Kubernetes
+        secrets on a short interval using a machine identity rather than a human's credentials.
+      </p>
+
+      <div class="callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <p><strong>When the tool fights you:</strong> the secret manager's web interface refused to create a machine identity. Rather than stall, I created the identity, membership and auth records directly in its own database with a properly hashed client secret — then went back and documented the path so it was reproducible.</p>
+      </div>
+
+      <h2>Debugging notes</h2>
+      <ul class="bullets">
+        <li><strong>Registry pulls returned 403.</strong> The CI job's default token didn't carry the permissions needed for cross-repository image pulls; switching to a scoped personal access token fixed it.</li>
+        <li><strong>A seed script failed on module resolution.</strong> Running it inside a mounted container with the right runtime and TLS library avoided fighting the host environment.</li>
+        <li><strong>A schema field had been renamed</strong> in code but not in the database, leaving a partially applied migration. Resolved by aligning the column and marking the migration applied rather than forcing a destructive reset.</li>
+        <li><strong>An organisation policy disabled deploy keys</strong> mid-project, so continuous delivery stayed on the side that had write access while the client's side kept CI only.</li>
+      </ul>
+
+      <h3>A "networking" problem that wasn't</h3>
+      <p>
+        A developer's connection to the staging database started failing. I worked outward: checked firewall drop
+        counters to rule out packet filtering, verified the SSH daemon's forwarding configuration, and created a
+        dedicated no-login account for tunnelling. The actual cause was a <strong>password authentication failure
+        on the database role</strong> — the network was fine the entire time.
+      </p>
+      <p>
+        Worth the walk. Ruling things out in order is what makes the last answer trustworthy.
+      </p>
+
+    </article>
+
+    <a class="next-case" href="apijay.html">
+      <div>
+        <p class="label">Next case study</p>
+        <h3>Self-Hosted Platform Ops</h3>
+      </div>
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© <span id="year">2026</span> Deepak Bharate</p>
+    <p class="footer-built">Hand-written HTML &amp; CSS · no framework · <a href="https://github.com/04Deepak/portfolio" target="_blank" rel="noopener">source</a></p>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>
