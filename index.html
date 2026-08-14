@@ -1,468 +1,92 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deepak Bharate — Full-Stack Developer &amp; DevOps Engineer</title>
-<meta name="description" content="Full-stack developer and DevOps engineer in Pune. I build production systems in Node, TypeScript and Go, and ship them on Kubernetes with ArgoCD GitOps.">
-<link rel="canonical" href="https://04deepak.github.io/portfolio/">
+<title>Deepak Bharate — DevOps &amp; Platform Engineer</title>
+<meta name="description" content="This portfolio has moved to 04deepak.pages.dev">
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://04deepak.github.io/portfolio/">
-<meta property="og:title" content="Deepak Bharate — Full-Stack Developer &amp; DevOps Engineer">
-<meta property="og:description" content="I build production systems in Node, TypeScript and Go, and ship them on Kubernetes with ArgoCD GitOps.">
-<meta property="og:image" content="https://04deepak.github.io/portfolio/img/me.jpg">
-<meta name="twitter:card" content="summary_large_image">
+<!-- Tells search engines the new address is authoritative, so ranking and
+     any existing links transfer rather than competing with the new site. -->
+<link rel="canonical" href="https://04deepak.pages.dev/">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0d12'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='monospace' font-weight='bold' fill='%23ffb454'>D</text></svg>">
+<!-- Works with JavaScript disabled. The delay is 0 so it is effectively
+     instant, but the visible link below still renders if anything blocks it. -->
+<meta http-equiv="refresh" content="0; url=https://04deepak.pages.dev/">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles/main.css">
+<meta property="og:title" content="Deepak Bharate — DevOps &amp; Platform Engineer">
+<meta property="og:url" content="https://04deepak.pages.dev/">
+<meta name="robots" content="noindex, follow">
 
-<script>
-  // Set theme before paint to avoid a flash of the wrong theme.
-  (function () {
-    try {
-      var saved = localStorage.getItem("theme");
-      var theme = saved || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-      document.documentElement.setAttribute("data-theme", theme);
-    } catch (e) {}
-  })();
-</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2322d3ee'/><stop offset='1' stop-color='%23b14dff'/></linearGradient></defs><rect width='100' height='100' rx='24' fill='%2306060f'/><text y='71' x='50' text-anchor='middle' font-size='60' font-family='monospace' font-weight='bold' fill='url(%23g)'>D</text></svg>">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Deepak Bharate",
-  "jobTitle": "Full-Stack Developer & DevOps Engineer",
-  "url": "https://04deepak.github.io/portfolio/",
-  "email": "mailto:deepakbharate54321@gmail.com",
-  "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressRegion": "Maharashtra", "addressCountry": "IN" },
-  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Sir Parashurambhau College" },
-  "sameAs": ["https://github.com/04Deepak"],
-  "knowsAbout": ["Kubernetes", "ArgoCD", "GitOps", "Node.js", "TypeScript", "Go", "Docker", "React"]
-}
-</script>
+<style>
+  :root { color-scheme: dark; }
+  * { margin: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 1.25rem;
+    padding: 2rem;
+    text-align: center;
+    background: #06060f;
+    color: #e9edfb;
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+  .tag {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #22d3ee;
+  }
+  h1 {
+    font-size: clamp(1.5rem, 1.2rem + 2vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .grad {
+    background: linear-gradient(115deg, #22d3ee, #7c8cff 45%, #b14dff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  p { color: #97a0c0; max-width: 44ch; }
+  a.go {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 999px;
+    background: linear-gradient(115deg, #22d3ee, #7c8cff 45%, #b14dff);
+    color: #04040c;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    color: #e9edfb;
+  }
+</style>
 </head>
 
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+  <p class="tag">Moved</p>
+  <h1>This portfolio now lives at <span class="grad">04deepak.pages.dev</span></h1>
+  <p>Redirecting you now. If nothing happens, use the button below.</p>
+  <a class="go" href="https://04deepak.pages.dev/">
+    Go to <code>04deepak.pages.dev</code> →
+  </a>
 
-<header class="site-header" id="siteHeader">
-  <nav class="wrap nav" aria-label="Primary">
-    <a class="brand" href="./"><span class="brand-mark">~/</span>deepak</a>
-
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#stack">Stack</a></li>
-      <li><a href="#timeline">Experience</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <div class="nav-tools">
-      <a class="icon-btn" href="https://github.com/04Deepak" target="_blank" rel="noopener" aria-label="GitHub profile">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.55v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-      </a>
-      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
-      </button>
-      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </nav>
-</header>
-
-<main id="main">
-
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="hero-role"><span class="status-dot"></span> Full-stack developer &amp; DevOps engineer · Pune, India</p>
-        <h1>I build the product <span class="accent">and</span> the pipeline that ships it.</h1>
-        <p class="hero-lede">
-          Two years turning requirement docs into running production systems — <strong>Node, TypeScript, Go</strong>
-          on the application side, <strong>Kubernetes and ArgoCD GitOps</strong> on the way out the door.
-        </p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href="#work">
-            See my work
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn--ghost" href="RESUME_deepak_bharate.pdf">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
-            Résumé
-          </a>
-        </div>
-        <div class="hero-meta">
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            Pune, Maharashtra
-          </span>
-          <a href="mailto:deepakbharate54321@gmail.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-            deepakbharate54321@gmail.com
-          </a>
-          <a href="https://github.com/04Deepak" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.55v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-            github.com/04Deepak
-          </a>
-        </div>
-      </div>
-
-      <aside class="hero-aside">
-        <div class="terminal">
-          <div class="terminal-bar">
-            <span></span><span></span><span></span>
-            <span class="terminal-title">deepak@portfolio — zsh</span>
-          </div>
-          <div class="terminal-body">
-            <p class="cmd">whoami --stack</p>
-            <ul class="out">
-              <li><span class="key">backend</span>  <span class="val">Node · Express · TypeScript · Go</span></li>
-              <li><span class="key">frontend</span> <span class="val">React · Next.js · Vite</span></li>
-              <li><span class="key">data</span>     <span class="val">MongoDB · PostgreSQL · Redis</span></li>
-              <li><span class="key">deploy</span>   <span class="val">K3s · ArgoCD · Docker · Helm</span></li>
-              <li><span class="key">secrets</span>  <span class="val">Infisical · sealed config</span></li>
-            </ul>
-            <p class="cmd">kubectl get projects --shipped</p>
-            <ul class="out">
-              <li><span class="val">learnhub</span>       <span class="comment">multi-tenant LMS</span></li>
-              <li><span class="val">tumharajob</span>     <span class="comment">ATS + realtime chat</span></li>
-              <li><span class="val">servingservers</span> <span class="comment">GPU marketplace</span></li>
-              <li><span class="val">ngo-platform</span>   <span class="comment">4-svc microservices</span></li>
-            </ul>
-            <p class="cmd"><span class="caret"></span></p>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- ================= WORK ================= -->
-  <section class="section" id="work">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Selected work</p>
-        <h2>Systems I designed, built and deployed</h2>
-        <p class="lede">Five production projects from the last two years. Client and infrastructure specifics are kept deliberately general.</p>
-      </div>
-
-      <div class="card-grid">
-
-        <article class="card card--feature reveal">
-          <div class="card-top">
-            <div>
-              <h3><a href="projects/learnhub.html">LearnHub</a></h3>
-              <p class="card-role">Full-stack + platform · 2026</p>
-            </div>
-            <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-          </div>
-          <p>A white-label, multi-tenant video-learning SaaS built from BRD to production — chunked upload, FFmpeg HLS transcoding at four renditions, signed-URL streaming with per-org watermarking, and 4-role RBAC.</p>
-          <div class="tag-list">
-            <span class="tag">TypeScript</span><span class="tag">Express 5</span><span class="tag">MongoDB</span>
-            <span class="tag">Redis</span><span class="tag">Bull</span><span class="tag">FFmpeg</span><span class="tag">K3s</span>
-          </div>
-        </article>
-
-        <article class="card card--feature reveal">
-          <div class="card-top">
-            <div>
-              <h3><a href="projects/servingservers.html">ServingServers</a></h3>
-              <p class="card-role">Solo full-stack + security · 2026</p>
-            </div>
-            <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-          </div>
-          <p>A GPU rental marketplace in Go where strangers run containers on your hardware. Seven phases of build, then two adversarial pentests I ran against my own design — and fixed every finding.</p>
-          <div class="tag-list">
-            <span class="tag">Go</span><span class="tag">gRPC</span><span class="tag">Next.js</span>
-            <span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag tag--accent">Container security</span>
-          </div>
-        </article>
-
-        <article class="card card--feature reveal">
-          <div class="card-top">
-            <div>
-              <h3><a href="projects/ats.html">TumharaJob ATS</a></h3>
-              <p class="card-role">Full-stack + DevOps · 2026</p>
-            </div>
-            <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-          </div>
-          <p>Debugged three real-time chat failures down to root cause in Socket.IO, then rebuilt the delivery path — and moved the whole platform onto GitOps with config that auto-deploys from a secrets store.</p>
-          <div class="tag-list">
-            <span class="tag">Node</span><span class="tag">Socket.IO</span><span class="tag">React</span>
-            <span class="tag">MongoDB</span><span class="tag">ArgoCD</span><span class="tag">Infisical</span>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="card-top">
-            <div>
-              <h3><a href="projects/ngo.html">NGO Platform &amp; Community App</a></h3>
-              <p class="card-role">DevOps / platform + backend · 2026</p>
-            </div>
-            <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-          </div>
-          <p>Two applications on one self-hosted K3s cluster, delivered by ArgoCD — including a four-service microservice app with RS256 JWT and a shared-infrastructure namespace.</p>
-          <div class="tag-list">
-            <span class="tag">K3s</span><span class="tag">ArgoCD</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span><span class="tag">Turborepo</span>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="card-top">
-            <div>
-              <h3><a href="projects/apijay.html">Self-Hosted Platform Ops</a></h3>
-              <p class="card-role">Platform / infra-ops · 2026</p>
-            </div>
-            <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-          </div>
-          <p>Ran a self-hosted stack the way a small platform team would: mail with SPF/DKIM/DMARC, SSO, notifications, CI, and secrets as the single source of truth — plus the incident work that comes with it.</p>
-          <div class="tag-list">
-            <span class="tag">Docker</span><span class="tag">Caddy</span><span class="tag">Authentik</span><span class="tag">Infisical</span><span class="tag">SMTP</span>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="card-top">
-            <div>
-              <h3><a href="work.html">Everything else</a></h3>
-              <p class="card-role">Open source &amp; learning projects</p>
-            </div>
-            <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-          <p>GitOps and Kubernetes practice repos, a Spring Boot banking app, computer-vision experiments, and the small projects I learned on.</p>
-          <div class="tag-list">
-            <span class="tag tag--info">Full index</span>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= STACK ================= -->
-  <section class="section" id="stack">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Stack</p>
-        <h2>What I work with</h2>
-        <p class="lede">Grouped by what I actually reach for, not rated out of ten.</p>
-      </div>
-
-      <div class="skill-grid">
-        <div class="skill-group reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg> Languages</h3>
-          <div class="tag-list">
-            <span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Go</span>
-            <span class="tag">Java</span><span class="tag">Python</span><span class="tag">PHP</span><span class="tag">C</span><span class="tag">SQL</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> Backend</h3>
-          <div class="tag-list">
-            <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Spring Boot</span>
-            <span class="tag">gRPC</span><span class="tag">REST</span><span class="tag">Socket.IO</span>
-            <span class="tag">Bull</span><span class="tag">Zod</span><span class="tag">Prisma</span><span class="tag">Mongoose</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4.5"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)"/></svg> Frontend</h3>
-          <div class="tag-list">
-            <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Vite</span>
-            <span class="tag">Tamagui</span><span class="tag">shadcn/ui</span><span class="tag">HTML</span><span class="tag">CSS</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg> Data &amp; storage</h3>
-          <div class="tag-list">
-            <span class="tag">MongoDB</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span>
-            <span class="tag">MySQL</span><span class="tag">S3 / MinIO</span><span class="tag">Wasabi</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 3 7v10l9 5 9-5V7Z"/><path d="m3 7 9 5 9-5M12 22V12"/></svg> Infrastructure</h3>
-          <div class="tag-list">
-            <span class="tag tag--accent">Kubernetes / K3s</span><span class="tag tag--accent">ArgoCD</span>
-            <span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span>
-            <span class="tag">Jenkins</span><span class="tag">Traefik</span><span class="tag">Caddy</span>
-            <span class="tag">nginx</span><span class="tag">cert-manager</span><span class="tag">AWS</span>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Security &amp; ops</h3>
-          <div class="tag-list">
-            <span class="tag">Infisical</span><span class="tag">JWT / RBAC</span><span class="tag">iptables</span>
-            <span class="tag">Linux namespaces</span><span class="tag">TLS / ACME</span>
-            <span class="tag">SPF / DKIM / DMARC</span><span class="tag">Pentesting</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= TIMELINE ================= -->
-  <section class="section" id="timeline">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Experience</p>
-        <h2>2026, in order</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item timeline-item--now reveal">
-          <p class="timeline-date">JUN — ONGOING</p>
-          <h3>Platform &amp; infra operations, self-hosted stack</h3>
-          <p>Mail hardening (STARTTLS relay, SPF/DKIM/DMARC), SSO, notifications, self-hosted CI, and secrets management. Autonomous pull-request review across three repositories.</p>
-        </div>
-        <div class="timeline-item timeline-item--now reveal">
-          <p class="timeline-date">JUN — ONGOING</p>
-          <h3>NGO Platform + Community App on K3s</h3>
-          <p>Stood up a K3s cluster with ArgoCD GitOps, deployed two applications with HPA and PodDisruptionBudgets, migrated document storage to a new AWS account and set billing guardrails.</p>
-        </div>
-        <div class="timeline-item timeline-item--now reveal">
-          <p class="timeline-date">MAY — ONGOING</p>
-          <h3>TumharaJob ATS — real-time chat &amp; GitOps</h3>
-          <p>Fixed three production chat bugs at root cause, moved secrets out of build config into a managed store, and cut the frontend over from a CDN to the K3s cluster.</p>
-        </div>
-        <div class="timeline-item timeline-item--now reveal">
-          <p class="timeline-date">MAY — ONGOING</p>
-          <h3>LearnHub multi-tenant LMS</h3>
-          <p>Largest project by effort: requirements through to production. Video pipeline, multi-tenancy, 4-role RBAC, then K3s + ArgoCD deployment and two security audits.</p>
-        </div>
-        <div class="timeline-item reveal">
-          <p class="timeline-date">APR — MAY</p>
-          <h3>ServingServers GPU marketplace</h3>
-          <p>Built solo across seven phases, then ran two adversarial pentests against my own container isolation and fixed all 17 critical and 25 high findings.</p>
-        </div>
-        <div class="timeline-item reveal">
-          <p class="timeline-date">2024</p>
-          <h3>B.Sc. Computer Science — Sir Parashurambhau College</h3>
-          <p>Graduated with 8.81 CGPA (80.60%).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ABOUT ================= -->
-  <section class="section" id="about">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">About</p>
-        <h2>How I work</h2>
-      </div>
-      <div class="prose reveal">
-        <p>
-          I'm a full-stack developer who kept following the code past the merge button. Most of what I've
-          shipped in the last two years started as a requirements document and ended as containers running
-          on a cluster I set up — so I've spent as much time in <code>kubectl</code> and ArgoCD as in an editor.
-        </p>
-        <p>
-          The work I'm proudest of is unglamorous: finding out that a chat bug was a Socket.IO
-          <code>reconnect</code> listener bound to the wrong object, that a kubelet crash was <code>fstab</code>
-          re-enabling swap after a reboot, or that a "network" problem was actually a Postgres password failure.
-          Root cause over workaround, every time.
-        </p>
-        <p>
-          I default to self-hosted and cost-conscious infrastructure, keep secrets in a managed store rather
-          than in build config, and write the documentation as I go — threat models, architecture decisions,
-          runbooks. I read English, Hindi and Marathi, and I'm based in Pune.
-        </p>
-        <div class="btn-row" style="margin-top:1.75rem">
-          <a class="btn btn--ghost" href="RESUME_deepak_bharate.pdf">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
-            Download résumé
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-  <section class="section" id="contact">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Contact</p>
-        <h2>Let's talk</h2>
-        <p class="lede">Open to full-stack and DevOps roles. The fastest way to reach me is email.</p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="reveal">
-          <div class="contact-list">
-            <div class="contact-row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              <span class="label">Email</span>
-              <a href="mailto:deepakbharate54321@gmail.com">deepakbharate54321@gmail.com</a>
-            </div>
-            <div class="contact-row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
-              <span class="label">Phone</span>
-              <a href="tel:+919356217238">+91 93562 17238</a>
-            </div>
-            <div class="contact-row">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.55v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-              <span class="label">GitHub</span>
-              <a href="https://github.com/04Deepak" target="_blank" rel="noopener">github.com/04Deepak</a>
-            </div>
-            <div class="contact-row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span class="label">Location</span>
-              <span>Pune, Maharashtra, India</span>
-            </div>
-            <div class="contact-row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg>
-              <span class="label">Languages</span>
-              <span>English · Hindi · Marathi</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <form class="form" id="contactForm">
-            <div class="field">
-              <label for="cf-name">Your name</label>
-              <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Jane Doe">
-            </div>
-            <div class="field">
-              <label for="cf-subject">Subject</label>
-              <input type="text" id="cf-subject" name="subject" required placeholder="Backend role at …">
-            </div>
-            <div class="field">
-              <label for="cf-message">Message</label>
-              <textarea id="cf-message" name="message" required placeholder="A few lines about the role or project…"></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-              Compose email
-            </button>
-            <p class="form-note">Opens your email app with the message ready to send — nothing is submitted to a third party.</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <p>© <span id="year">2026</span> Deepak Bharate</p>
-    <p class="footer-built">Hand-written HTML &amp; CSS · no framework · <a href="https://github.com/04Deepak/portfolio" target="_blank" rel="noopener">source</a></p>
-  </div>
-</footer>
-
-<script src="app.js"></script>
+  <script>
+    // Replace rather than assign, so the dead URL does not sit in history
+    // and trap anyone pressing Back.
+    location.replace("https://04deepak.pages.dev/");
+  </script>
 </body>
 </html>
